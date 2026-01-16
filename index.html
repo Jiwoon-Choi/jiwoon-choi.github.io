@@ -1,54 +1,252 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Jiwoon Choi — CV</title>
-  <meta name="description" content="Jiwoon Choi — CV, projects, research.">
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- mobile-friendly -->
-  <link rel="icon" href="data:,"><!-- tiny blank favicon -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jiwoon Choi</title>
+  <meta name="description" content="Jiwoon Choi — AI / NLP / Robotics. CV, projects, research." />
+  <link rel="icon" href="data:," />
+
   <style>
-    /* minimal styling so it doesn't look bare */
-    :root { --fg:#0f172a; --muted:#475569; --link:#2563eb; --bg:#fff; }
-    html,body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;}
-    .wrap{max-width:800px;margin:48px auto;padding:0 20px;}
-    h1{font-size:2rem;margin:0 0 .25rem}
-    .muted{color:var(--muted)}
-    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
-    .section{margin:28px 0}
-    .btn{display:inline-block;border:1px solid #e5e7eb;border-radius:10px;padding:10px 14px}
+    :root{
+      --bg:#ffffff;
+      --fg:#0f172a;
+      --muted:#475569;
+      --border:#e5e7eb;
+      --link:#2563eb;
+      --card:#f8fafc;
+      --shadow: 0 1px 2px rgba(0,0,0,.04);
+      --radius:16px;
+      --max: 960px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Top bar */
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:saturate(180%) blur(8px);
+      border-bottom:1px solid var(--border);
+    }
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:12px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .brand{display:flex; gap:10px; align-items:baseline}
+    .brand .name{font-weight:700}
+    .brand .tag{color:var(--muted); font-size:.95rem}
+    nav a{padding:8px 10px; border-radius:10px; color:var(--fg)}
+    nav a:hover{background:var(--card); text-decoration:none}
+
+    /* Layout */
+    .wrap{max-width:var(--max); margin:0 auto; padding:26px 18px 60px}
+    .grid{
+      display:grid;
+      grid-template-columns: 280px 1fr;
+      gap:22px;
+      margin-top:18px;
+    }
+
+    /* Sidebar */
+    .side{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:#fff;
+      box-shadow:var(--shadow);
+      padding:18px;
+      text-align:center;
+    }
+    .photo{
+      width:140px;
+      height:140px;
+      margin:0 auto 12px;
+      border-radius:50%;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:var(--card);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color:var(--muted);
+    }
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .side h1{font-size:1.4rem; margin:8px 0 4px}
+    .side .meta{color:var(--muted); margin-bottom:12px}
+
+    .links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+    }
+    .pill{
+      padding:8px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:#fff;
+      font-size:.95rem;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+    .pill:hover{background:var(--card)}
+
+    section{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:#fff;
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin-bottom:16px;
+    }
+    section h2{font-size:1.1rem; margin-top:0}
+    .item{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px;
+      margin-bottom:12px;
+    }
+    .item .title{font-weight:650}
+    .item .sub{color:var(--muted); font-size:.95rem}
+
+    footer{
+      max-width:var(--max);
+      margin:20px auto 0;
+      padding:0 18px 20px;
+      color:var(--muted);
+      font-size:.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:860px){
+      .grid{grid-template-columns:1fr}
+      nav{display:none}
+    }
   </style>
 </head>
+
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="name">Jiwoon Choi</div>
+        <div class="tag">AI / NLP / Robotics</div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
   <main class="wrap">
-    <h1>Jiwoon Choi</h1>
-    <div class="muted">AI / NLP / Robotics • Seoul</div>
+    <div class="grid">
+      <aside class="side">
+        <div class="photo">
+          <img src="profile.jpg" alt="Jiwoon Choi profile photo"
+               onerror="this.style.display='none'; this.parentNode.textContent='JC';">
+        </div>
 
-    <p class="section">
-      <a class="btn" href="cv.pdf" target="_blank" rel="noopener">📄 Curriculum Vitae (PDF)</a>
-      &nbsp;|&nbsp; <a href="mailto:zzjoe4115@gmail.com">Email</a>
-      &nbsp;|&nbsp; <a href="https://www.linkedin.com/in/jiwoon-choi-117602249/">LinkedIn</a>
-      &nbsp;|&nbsp; <a href="https://github.com/Jiwoon-Choi">GitHub</a>
-    </p>
+        <h1>Jiwoon Choi</h1>
+        <div class="meta">Seoul • Republic of Korea</div>
 
-    <div class="section">
-      <h2>About</h2>
-      <p>I serve in the Republic of Korea Army as an officer. 
-        I will be transitioning out of the army in February 2026 and plan to pursue studies and a career in AI, NLP, and Robotics.</p>
+        <div class="links">
+          <a class="pill" href="cv.pdf" target="_blank">📄 CV</a>
+          <a class="pill" href="mailto:zzjoe4115@gmail.com">✉️ Email</a>
+          <a class="pill" href="https://www.linkedin.com/in/jiwoon-choi-117602249/" target="_blank">in LinkedIn</a>
+          <a class="pill" href="https://github.com/Jiwoon-Choi" target="_blank">🐙 GitHub</a>
+        </div>
+
+        <p class="meta" style="margin-top:14px;font-size:.9rem">
+          Active-duty ROK Army officer.<br>
+          Service concludes <strong>February 2026</strong>.
+        </p>
+      </aside>
+
+      <div>
+        <section id="about">
+          <h2>About</h2>
+          <p>
+            I am an officer in the Republic of Korea Army preparing to transition into graduate study and a technical career focused on
+            <strong>computational linguistics (NLP/speech)</strong> and <strong>robotics</strong>, with an interest in building robust language technologies
+            for real-world environments.
+          </p>
+        </section>
+
+        <section id="projects">
+          <h2>Projects</h2>
+
+          <div class="item">
+            <div class="title">Voice-Controlled RGB LED System</div>
+            <div class="sub">Raspberry Pi • Speech interface • Hardware control</div>
+            <p>
+              Voice-controlled system that recognizes spoken commands and controls an RGB LED on a Raspberry Pi.
+              <a href="https://github.com/Jiwoon-Choi/raspi-voice-led-control" target="_blank">GitHub</a>
+            </p>
+          </div>
+
+          <div class="item">
+            <div class="title">Voice-Based Weather Assistant</div>
+            <div class="sub">Raspberry Pi • Speech interface • Weather API</div>
+            <p>
+              Voice-based assistant that answers weather queries using speech recognition and live weather data.
+              <a href="https://github.com/Jiwoon-Choi/raspi-voice-weather-assistant" target="_blank">GitHub</a>
+            </p>
+          </div>
+        </section>
+
+        <section id="research">
+          <h2>Research</h2>
+          <div class="item">
+            <div class="title">Future Army Project (ROK Army × Seoul National University)</div>
+            <div class="sub">Scenario modeling • Qualitative analysis</div>
+            <p>
+              Analyzed the strategic impact of emerging technologies (AI, automation, cyber operations) on U.S.–China competition.
+            </p>
+          </div>
+        </section>
+
+        <section id="cv">
+          <h2>Curriculum Vitae</h2>
+          <a class="pill" href="cv.pdf" target="_blank">📄 Download CV (PDF)</a>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Email: <a href="mailto:zzjoe4115@gmail.com">zzjoe4115@gmail.com</a></p>
+        </section>
+      </div>
     </div>
-
-    <div class="section">
-      <h2>Projects</h2>
-      <!-- Add items later; OK to leave empty for now -->
-    </div>
-
-    <div class="section">
-      <h2>Research</h2>
-      <!-- Coming soon. -->
-    </div>
-
-    <div class="section muted">© <span id="y"></span> Jiwoon Choi</div>
   </main>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <footer>
+    © <span id="y"></span> Jiwoon Choi
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
