@@ -235,6 +235,41 @@
           <h2>Projects</h2>
 
           <div class="item">
+            <div class="title">Collaborative Robot Assistant (Simulation, Ongoing)</div>
+            <div class="sub">ROS 2 • Gazebo • Speech/NLU (EN/KR mode) • CV (YOLO) • Navigation/Manipulation • FSM</div>
+
+            <p>
+              Simulation-based collaborative assistant that executes spoken commands to navigate, perceive, and manipulate objects.
+              Designed as a modular ROS 2 system: speech → language grounding (intent) → FSM executor → perception/navigation/manipulation → Gazebo.
+            </p>
+
+            <p class="sub" style="margin-top:8px;">
+              Current progress: custom ROS 2 message interfaces (Intent / ExecutionState) + working FSM-based executor node +
+              end-to-end intent → execution-state feedback pipeline verified.
+            </p>
+
+            <details style="margin-top:10px;">
+              <summary style="cursor:pointer;color:var(--link);">View architecture diagram</summary>
+              <pre style="margin-top:10px; white-space:pre; overflow:auto; padding:12px; border:1px solid var(--border); border-radius:12px; background:var(--card);">
+User (Voice)
+  ↓
+Wake Word / Mode Selector (EN / KR)
+  ↓
+ASR (Speech → Text)
+  ↓
+NLU / Intent Parser
+  ↓  (cra_msgs/Intent)
+Executor Node (FSM)
+  ├─ Navigation (Nav2)
+  ├─ Perception (Camera + LiDAR, YOLO)
+  └─ Manipulation (MoveIt 2)
+  ↓
+Gazebo Simulation (Mobile Base + Arm)
+</pre>
+            </details>
+          </div>
+          
+          <div class="item">
             <div class="title">Voice-Controlled RGB LED System</div>
             <div class="sub">Raspberry Pi • Speech interface • Hardware control</div>
             <p>
