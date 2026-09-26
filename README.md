@@ -2,6 +2,8 @@
 
 Astro static site for `https://jiwoon-choi.github.io/`. Portfolio content is in `src/pages/index.astro`; essays are Markdown files in `src/content/writing/`. The public Writing section is intentionally minimal. Decap CMS provides a browser editor at `/admin/` once authentication is configured.
 
+[Open the Writing editor](https://jiwoon-choi.github.io/admin/)
+
 ## Before replacing the current site
 
 1. Back up or branch the existing `Jiwoon-Choi/jiwoon-choi.github.io` repository. The existing `profile.jpg` and `cv_jiwoon_choi.pdf` are already copied into `public/` from the public repository. Review or replace the CV if it is outdated.
