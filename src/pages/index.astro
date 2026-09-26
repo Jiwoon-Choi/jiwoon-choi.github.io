@@ -1,0 +1,172 @@
+---
+import '../portfolio.css';
+---
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="Jiwoon Choi — software, robotics, intelligent systems, projects and writing." /><title>Jiwoon Choi</title></head><body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="name">Jiwoon Choi</div>
+        <div class="tag">Software · Robotics · Intelligent Systems</div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="/writing/">Writing</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="grid">
+      <aside class="side">
+        <div class="photo"><img src="/profile.jpg" alt="Jiwoon Choi profile photo" onerror="this.remove(); this.parentElement.textContent='JC';" /></div>
+
+        <h1>Jiwoon Choi</h1>
+        <div class="meta">Philadelphia · United States</div>
+
+        <div class="links">
+          <a class="pill" href="/cv_jiwoon_choi.pdf" target="_blank">📄 CV</a>
+          <a class="pill" href="mailto:zzjoe4115@gmail.com">✉️ Email</a>
+          <a class="pill" href="https://www.linkedin.com/in/jiwoon-choi-117602249/" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.35V9h3.41v1.56h.05c.47-.9 1.62-1.85 3.34-1.85 3.57 0 4.23 2.35 4.23 5.41v6.33zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.57V9h3.54v11.45z"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a class="pill" href="https://github.com/Jiwoon-Choi" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.1 3.29 9.43 7.86 10.96.58.11.79-.25.79-.56v-2.1c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.57.23 2.73.11 3.02.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.4-5.25 5.69.41.35.78 1.05.78 2.12v3.15c0 .31.21.68.8.56A11.52 11.52 0 0 0 23.5 12C23.5 5.74 18.27.5 12 .5z"/>
+            </svg>
+            GitHub
+          </a>
+        </div>
+
+        <p class="meta" style="margin-top:14px;font-size:.9rem; white-space:nowrap;">
+          Master’s student at the University of Pennsylvania.
+        </p>
+      </aside>
+
+      <div>
+        <section id="about">
+          <h2>About</h2>
+          <p>I’m a master’s student at the University of Pennsylvania (MAS-CS/MCIT), interested in software systems, robotics, AI, and embodied intelligence. Previously, I served as an officer in the Republic of Korea Army.</p>
+        </section>
+
+        <section id="education">
+          <h2>Education</h2>
+          <ul class="list">
+            <li><strong>University of Pennsylvania</strong> — MAS-CS (MCIT), expected May 2028</li>
+            <li><strong>Korea Military Academy</strong> — B.A. in Military English; B.M.A.S. in Military Art and Science</li>
+            <li>Additional coursework in mathematics, computer science, and linguistics through accredited institutions.</li>
+          </ul>
+        </section>
+
+        <section id="interests">
+          <h2>Current Technical Interests</h2>
+          <ul class="list">
+            <li>Speech processing and spoken language understanding</li>
+            <li>Machine translation, particularly domain-specific and low-resource settings</li>
+            <li>Robust language technologies for noisy or real-world environments</li>
+            <li>Multimodal and embodied AI applications (language + perception)</li>
+          </ul>
+        </section>
+        
+        <section id="projects">
+          <h2>Projects</h2>
+
+          <div class="item">
+            <div class="title">Collaborative Robot Assistant (Simulation, Ongoing)</div>
+            <div class="sub">ROS 2 • Gazebo • Speech/NLU (EN/KR mode) • CV (YOLO) • Navigation/Manipulation • FSM</div>
+
+            <p>
+              Simulation-based collaborative assistant that executes spoken commands to navigate, perceive, and manipulate objects.
+              Designed as a modular ROS 2 system: speech → language grounding (intent) → FSM executor → perception/navigation/manipulation → Gazebo.
+            </p>
+
+            <p class="sub" style="margin-top:8px;">
+              Current progress: custom ROS 2 message interfaces (Intent / ExecutionState) + working FSM-based executor node +
+              end-to-end intent → execution-state feedback pipeline verified.
+            </p>
+
+            <details style="margin-top:10px;">
+              <summary style="cursor:pointer;color:var(--link);">View architecture diagram</summary>
+              <pre style="margin-top:10px; white-space:pre; overflow:auto; padding:12px; border:1px solid var(--border); border-radius:12px; background:var(--card);">
+User (Voice)
+  ↓
+Wake Word / Mode Selector (EN / KR)
+  ↓
+ASR (Speech → Text)
+  ↓
+NLU / Intent Parser
+  ↓  (cra_msgs/Intent)
+Executor Node (FSM)
+  ├─ Navigation (Nav2)
+  ├─ Perception (Camera + LiDAR, YOLO)
+  └─ Manipulation (MoveIt 2)
+  ↓
+Gazebo Simulation (Mobile Base + Arm)
+</pre>
+            </details>
+          </div>
+          
+          <div class="item">
+            <div class="title">Voice-Controlled RGB LED System</div>
+            <div class="sub">Raspberry Pi • Speech interface • Hardware control</div>
+            <p>
+              Voice-controlled system that recognizes spoken commands and controls an RGB LED on a Raspberry Pi.
+              <a href="https://github.com/Jiwoon-Choi/raspi-voice-led-control" target="_blank">GitHub</a>
+            </p>
+          </div>
+          
+          <div class="item">
+            <div class="title">Voice-Based Weather Assistant</div>
+            <div class="sub">Raspberry Pi • Speech interface • Weather API</div>
+            <p>
+              Voice-based assistant that answers weather queries using speech recognition and live weather data.
+              <a href="https://github.com/Jiwoon-Choi/raspi-voice-weather-assistant" target="_blank">GitHub</a>
+            </p>
+          </div>
+        </section>
+
+        <section id="research">
+          <h2>Research</h2>
+          <div class="item">
+            <div class="title">Future Army Project (ROK Army × Seoul National University)</div>
+            <div class="sub">Scenario modeling • Qualitative analysis • Mar 2019 – Jul 2019</div>
+            <p>
+              Selected as one of the eight cadets from the Korea Military Academy to take part in a joint research program for a semester.
+            </p>
+            <p>
+              Analyzed the strategic impact of emerging technologies (AI, automation, cyber operations) on U.S.–China competition.
+            </p>
+          </div>
+        </section>
+
+        <section id="writing">
+          <h2>Writing</h2>
+          <p>Essays and notes on things I find interesting.</p>
+          <a href="/writing/">Read my writing →</a>
+        </section>
+
+        <section id="cv">
+          <h2>Curriculum Vitae</h2>
+          <a class="pill" href="/cv_jiwoon_choi.pdf" target="_blank">📄 Download CV (PDF)</a>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Email: <a href="mailto:zzjoe4115@gmail.com">zzjoe4115@gmail.com</a></p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © {new Date().getFullYear()} Jiwoon Choi
+  </footer>
+
+</body></html>

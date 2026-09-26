@@ -1,0 +1,21 @@
+backend:
+  name: turbo-github
+  turbo_site_id: 7ee21f53-ab3c-4e5d-aade-048ab4e0e8a3
+  branch: main
+media_folder: public/media
+public_folder: /media
+collections:
+  - name: writing
+    label: Writing
+    label_singular: Essay
+    folder: src/content/writing
+    create: true
+    extension: md
+    format: frontmatter
+    slug: "{{slug}}"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      - { label: Description, name: description, widget: string, required: false }
+      - { label: Draft, name: draft, widget: boolean, default: false }
+      - { label: Body, name: body, widget: markdown }
