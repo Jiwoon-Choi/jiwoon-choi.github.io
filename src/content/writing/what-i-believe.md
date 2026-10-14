@@ -1,7 +1,7 @@
 ---
 title: What I believe
 date: 2026-10-14
-draft: true
+draft: false
 ---
 \* Working towards a sustainable future through advancing science and technology is my mission. In the long term, we need to make life multiplanetary. I hope humanity will have become a multiplanetary species by the time Earth faces a doomsday event in the future. As Konstantin Tsiolkovsky said, "The Earth is the cradle of humanity, but mankind cannot stay in the cradle forever."
 
