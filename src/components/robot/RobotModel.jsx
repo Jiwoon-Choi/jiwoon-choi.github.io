@@ -11,6 +11,26 @@ function Part({ position, args, color, ...props }) {
   );
 }
 
+function ArmLink({
+  position,
+  length,
+  radius = 0.11,
+  color = "#f8fafc",
+}) {
+  return (
+    <mesh position={position} castShadow>
+      <cylinderGeometry
+        args={[radius * 0.85, radius, length, 32]}
+      />
+      <meshStandardMaterial
+        color={color}
+        metalness={0.2}
+        roughness={0.35}
+      />
+    </mesh>
+  );
+}
+
 function Joint({ position, radius = 0.13 }) {
   return (
     <mesh position={position}>
@@ -33,7 +53,7 @@ export default function RobotModel({ waveCount = 0, onWave }) {
   const lastWave = useRef(waveCount);
   const waveStart = useRef(-100);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     const time = state.clock.getElapsedTime();
 
     if (lastWave.current !== waveCount) {
@@ -53,16 +73,18 @@ export default function RobotModel({ waveCount = 0, onWave }) {
         ? -0.55
         : 0.25 + Math.sin(time * 0.8) * 0.08;
 
-      shoulder.current.rotation.z = THREE.MathUtils.lerp(
+      shoulder.current.rotation.z = THREE.MathUtils.damp(
         shoulder.current.rotation.z,
         target,
-        0.07
+        5,
+        delta
       );
 
-      shoulder.current.rotation.y = THREE.MathUtils.lerp(
+      shoulder.current.rotation.y = THREE.MathUtils.damp(
         shoulder.current.rotation.y,
         pointerX * 0.25,
-        0.04
+        3,
+        delta
       );
     }
 
@@ -71,24 +93,33 @@ export default function RobotModel({ waveCount = 0, onWave }) {
         ? -0.9 + Math.sin(time * 9) * 0.3
         : -0.65 + Math.sin(time * 0.6) * 0.06;
 
-      elbow.current.rotation.z = THREE.MathUtils.lerp(
+      elbow.current.rotation.z = THREE.MathUtils.damp(
         elbow.current.rotation.z,
         target,
-        0.1
+        7,
+        delta
       );
     }
 
     if (wrist.current) {
-      wrist.current.rotation.x = waving
+      const target = waving
         ? Math.sin(time * 11) * 0.35
         : 0;
+
+      wrist.current.rotation.x = THREE.MathUtils.damp(
+        wrist.current.rotation.x,
+        target,
+        8,
+        delta
+      );
     }
 
     if (sensor.current) {
-      sensor.current.rotation.y = THREE.MathUtils.lerp(
+      sensor.current.rotation.y = THREE.MathUtils.damp(
         sensor.current.rotation.y,
         pointerX * 0.6,
-        0.06
+        4,
+        delta
       );
     }
   });
@@ -106,15 +137,17 @@ export default function RobotModel({ waveCount = 0, onWave }) {
       />
 
       {/* Four wheels */}
-      {[-0.48, 0.48].map((x) =>
-        [-0.48, 0.48].map((z) => (
+      {[-0.7, 0.7].map((x) =>
+        [-0.32, 0.32].map((z) => (
           <mesh
             key={`${x}-${z}`}
             position={[x, 0.2, z]}
-            rotation={[Math.PI / 2, 0, 0]}
+            rotation={[0, 0, Math.PI / 2]}
           >
             <cylinderGeometry args={[0.2, 0.2, 0.12, 24]} />
-            <meshStandardMaterial color="#334155" />
+            <meshStandardMaterial 
+              color="#334155"
+              roughness={0.85}/>
           </mesh>
         ))
       )}
@@ -148,18 +181,19 @@ export default function RobotModel({ waveCount = 0, onWave }) {
         <Joint position={[0, 0, 0]} radius={0.18} />
 
         <group ref={shoulder}>
-          <Part
+          <ArmLink
             position={[0, 0.38, 0]}
-            args={[0.22, 0.76, 0.22]}
-            color="#f8fafc"
+            length={0.76}
+            radius ={0.14}
           />
 
           <group position={[0, 0.76, 0]} ref={elbow}>
             <Joint position={[0, 0, 0]} />
 
-            <Part
+            <ArmLink
               position={[0, 0.32, 0]}
-              args={[0.18, 0.64, 0.18]}
+              length={0.64}
+              radius={0.11}
               color="#e2e8f0"
             />
 

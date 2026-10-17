@@ -32,14 +32,21 @@ export default function RobotHero() {
         <Canvas
           camera={{
             position: [3, 2.4, 4],
-            fov: 42,
+            fov: 52,
           }}
           dpr={[1, 2]}
         >
-          <ambientLight intensity={1.4} />
+          <ambientLight intensity={0.8} />
+          
           <directionalLight
             position={[4, 7, 5]}
-            intensity={2.3}
+            intensity={2.2}
+          />
+
+          <directionalLight
+            position={[-4, 3, -3]}
+            intensity={0.7}
+            color="#b9d9ff"
           />
 
           <group position={[0, -0.6, 0]}>
