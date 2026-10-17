@@ -66,7 +66,17 @@ export default function RobotHero() {
 
           <OrbitControls
             enablePan={false}
-            enableZoom={false}
+            enableZoom={true}
+            enableDamping={true}
+            dampingFactor={0.08}
+
+            autoRotate={true}
+            autoRotateSpeed={4.0}
+
+            minDistance={2.5}
+            maxDistance={9}
+
+            target={[0, 0.35, 0]}
             minPolarAngle={0.3}
             maxPolarAngle={Math.PI / 2.1}
           />
@@ -105,7 +115,7 @@ export default function RobotHero() {
           marginTop: "12px",
         }}
       >
-        Drag to rotate · Click the robot to interact
+        Drag to rotate · Scroll to zoom · Click to interact
       </p>
     </section>
   );
