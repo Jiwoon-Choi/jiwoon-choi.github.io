@@ -1,5 +1,6 @@
 ---
 import '../portfolio.css';
+import RobotHero from '../components/robot/RobotHero.jsx';
 ---
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="Jiwoon Choi — software, robotics, intelligent systems, projects and writing." /><title>Jiwoon Choi</title></head><body>
@@ -54,6 +55,11 @@ import '../portfolio.css';
         <section id="about">
           <h2>About</h2>
           <p>I’m a master’s student at the University of Pennsylvania (MAS-CS), interested in software systems, robotics, AI, and embodied intelligence. Previously, I served as an officer in the Republic of Korea Army.</p>
+        </section>
+
+        <!-- Interactive 3D robot -->
+        <section id="robot-demo" aria-label="Interactive 3D robot">
+          <RobotHero client:only="react" />
         </section>
 
         <section id="education">
