@@ -1,38 +1,160 @@
-# Jiwoon Choi — portfolio and writing
+# Jiwoon Choi — Personal Portfolio
 
-Astro static site for `https://jiwoon-choi.github.io/`. Portfolio content is in `src/pages/index.astro`; essays are Markdown files in `src/content/writing/`. The public Writing section is intentionally minimal. Decap CMS provides a browser editor at `/admin/` once authentication is configured.
+**Live Website:** [https://jiwoon-choi.github.io/](https://jiwoon-choi.github.io/)
 
-[Open the Writing editor](https://jiwoon-choi.github.io/admin/)
+[![Portfolio Homepage Screenshot](./screenshots/homepage.png)](https://jiwoon-choi.github.io/)
 
-## Before replacing the current site
+My personal portfolio website showcasing my background, technical interests, and projects in software engineering, robotics, and intelligent systems.
 
-1. Back up or branch the existing `Jiwoon-Choi/jiwoon-choi.github.io` repository. The existing `profile.jpg` and `cv_jiwoon_choi.pdf` are already copied into `public/` from the public repository. Review or replace the CV if it is outdated.
-2. Review the updated About and Education wording, projects, email, and research details.
-3. Install Node 20.19+ or 22.12+; run `npm install` and `npm run build`. Commit the generated lockfile.
-4. Put these files at the root of the existing GitHub Pages repository, commit to `main`, and set **Settings → Pages → Build and deployment → Source: GitHub Actions**. Verify the deployment before removing any old files.
+The website features an interactive 3D mobile manipulator built with React Three Fiber.
 
-## Enable browser publishing
+## Tech Stack
 
-1. Register for [Decap Turbo](https://turbo.decapcms.org/) (currently a free tier for one site and one seat). Connect GitHub, granting its app access only to the site repository.
-2. Create a Turbo site pointing to `Jiwoon-Choi/jiwoon-choi.github.io`, branch `main`, config path `public/admin/config.yml`, and admin interface URL `https://jiwoon-choi.github.io/admin/`. The Site ID is already configured in the included file.
-3. Commit and push the site files. Confirm the GitHub Pages workflow succeeds before opening the editor.
-4. Open `/admin/`, sign in, create an Essay, and publish. It commits Markdown to GitHub; the workflow then rebuilds the static site. The draft switch hides posts from the public build. Save first if you want to review a draft before publishing.
+- **Astro** — Static site generation
+- **React** — Interactive UI components
+- **Three.js / React Three Fiber** — 3D rendering and animation
+- **React Three Drei** — Camera controls and scene utilities
+- **CSS** — Responsive layout and styling
+- **Decap CMS** — Browser-based writing management
+- **GitHub Pages / GitHub Actions** — Hosting and automated deployment
 
-The CMS editor is open-source; its optional hosted authentication service is a separate dependency. You can later replace Turbo with a self-hosted OAuth proxy while retaining all Markdown files. GitHub Pages provides static hosting; there is no backend on the website itself.
+## Features
 
-## Local authoring
+### Interactive 3D Robot
 
-Run `npm run dev`. To publish without CMS, add `src/content/writing/my-essay.md` with:
+- Custom mobile manipulator built using Three.js primitives
+- Animated shoulder, elbow, wrist, and sensor
+- Interactive greeting animation
+- Camera rotation, zoom, and automatic rotation
+
+### Portfolio
+
+- Responsive homepage with profile photo and personal introduction
+- Selected software engineering and robotics projects
+- Technical interests, education, and research experience
+- Downloadable résumé and contact information
+
+### Writing
+
+- Markdown-based essays
+- Draft and publication controls
+- Optional browser-based editing through Decap CMS
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 24 (recommended)
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/Jiwoon-Choi/jiwoon-choi.github.io.git
+cd jiwoon-choi.github.io
+npm ci
+npm run dev
+```
+
+Open http://localhost:4321/ in your browser.
+
+### Production Build
+
+```bash
+npm run build
+```
+
+The generated static website is written to `dist/`.
+
+## Project Structure
+
+```text
+.
+├── .github/workflows/deploy.yml
+├── public/
+│   ├── admin/
+│   ├── profile.jpg
+│   └── resume_jiwoon_choi.pdf
+├── src/
+│   ├── components/robot/
+│   │   ├── RobotHero.jsx
+│   │   └── RobotModel.jsx
+│   ├── content/writing/
+│   ├── pages/
+│   │   ├── index.astro
+│   │   └── writing/
+│   └── portfolio.css
+├── astro.config.mjs
+├── package.json
+└── README.md
+```
+
+## Writing and Content Management
+
+Essays are stored as Markdown files in:
+
+`src/content/writing/`
+
+The public Writing section displays published essays.
+
+### Local Authoring
+
+Create a Markdown file, such as:
+
+`src/content/writing/my-essay.md`
+
+Example:
 
 ```md
 ---
-title: "My essay"
-date: 2026-09-26
-description: "Short description."
+title: "My Essay"
+date: 2026-10-17
+description: "A short description."
 draft: false
 ---
 
-Essay text here.
+Write your essay here.
 ```
 
-Only published essays dated today or earlier appear on the site. The initial archive is empty: no essays were invented.
+Only non-draft essays with publication dates on or before the current date appear on the public website.
+
+### Browser-Based Publishing (Decap CMS)
+
+The website includes a Decap CMS configuration for managing essays through a browser.
+
+**Editor:** https://jiwoon-choi.github.io/admin/
+
+To enable browser publishing:
+
+1. Configure Decap Turbo authentication at https://turbo.decapcms.org/.
+2. Connect the GitHub repository:
+   `Jiwoon-Choi/jiwoon-choi.github.io`
+3. Set the publishing branch to `main`.
+4. Use `public/admin/config.yml` as the CMS configuration path.
+5. Open `/admin/`, sign in, and create or edit essays.
+
+Publishing an essay commits Markdown changes to GitHub and triggers the deployment workflow.
+
+Browser publishing requires the authentication service to be configured. Local Markdown authoring works independently of the CMS.
+
+## Deployment
+
+The website is hosted on GitHub Pages.
+
+GitHub Actions automatically builds and deploys the site when changes are pushed to `main`.
+
+Workflow: `.github/workflows/deploy.yml`
+
+## Author
+
+**Jiwoon Choi**
+
+Master's student at the University of Pennsylvania, interested in software engineering, robotics, and embodied intelligence.
+
+- **Website:** https://jiwoon-choi.github.io/
+- **GitHub:** https://github.com/Jiwoon-Choi
+- **LinkedIn:** https://www.linkedin.com/in/jiwoon-choi-117602249/
+
+---
+
+Built with Astro, React, and Three.js.
