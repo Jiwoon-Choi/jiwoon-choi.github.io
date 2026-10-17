@@ -11,24 +11,8 @@ export default function RobotHero() {
   };
 
   return (
-    <section
-      style={{
-        width: "100%",
-        maxWidth: "850px",
-        margin: "0 auto",
-        textAlign: "center",
-      }}
-    >
-      <div
-        style={{
-          height: "440px",
-          width: "100%",
-          background:
-            "linear-gradient(180deg, #f8fafc, #e2e8f0)",
-          borderRadius: "20px",
-          overflow: "hidden",
-        }}
-      >
+    <div className="robot-hero">
+      <div className="robot-canvas">
         <Canvas
           camera={{
             position: [3, 2.4, 4],
@@ -37,7 +21,7 @@ export default function RobotHero() {
           dpr={[1, 2]}
         >
           <ambientLight intensity={0.8} />
-          
+
           <directionalLight
             position={[4, 7, 5]}
             intensity={2.2}
@@ -69,13 +53,10 @@ export default function RobotHero() {
             enableZoom={true}
             enableDamping={true}
             dampingFactor={0.08}
-
             autoRotate={true}
             autoRotateSpeed={4.0}
-
             minDistance={2.5}
             maxDistance={9}
-
             target={[0, 0.35, 0]}
             minPolarAngle={0.3}
             maxPolarAngle={Math.PI / 2.1}
@@ -83,40 +64,19 @@ export default function RobotHero() {
         </Canvas>
       </div>
 
-      <h2 style={{ marginTop: "20px" }}>
-        Meet My Robot
-      </h2>
+      <div className="robot-overlay">
+        <span className="robot-hint">
+          Drag to rotate · Scroll to zoom
+        </span>
 
-      <p>
-        An interactive mobile manipulator exploring
-        human-robot collaboration.
-      </p>
-
-      <button
-        type="button"
-        onClick={wave}
-        style={{
-          padding: "12px 24px",
-          borderRadius: "10px",
-          border: "none",
-          background: "#f59e0b",
-          color: "#111827",
-          fontWeight: "bold",
-          cursor: "pointer",
-        }}
-      >
-        👋 Say Hello
-      </button>
-
-      <p
-        style={{
-          fontSize: "13px",
-          opacity: 0.6,
-          marginTop: "12px",
-        }}
-      >
-        Drag to rotate · Scroll to zoom · Click to interact
-      </p>
-    </section>
+        <button
+          type="button"
+          className="robot-greet"
+          onClick={wave}
+        >
+          👋 Say Hello
+        </button>
+      </div>
+    </div>
   );
 }
